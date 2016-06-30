@@ -1,0 +1,10 @@
+body {
+  background-color: black;
+  color: white; }
+
+.player {
+  position: relative;
+  margin-left: 30%; }
+
+.title {
+  margin-left: 1%; }

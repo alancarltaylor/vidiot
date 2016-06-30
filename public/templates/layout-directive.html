@@ -1,8 +1,5 @@
-<div ng-bind="test"></div>
-<h1>Test....</h1>
+<h1 class="title">Vidiot.</h1>
 
-<div ng-repeat="video in playlist">
-  <div ng-bind-html="trustHtml(video)"></div>
-</div>
+<div class="player" ng-bind-html="trustHtml(playlist[0])"></div>
 
 <div ui-view></div>
