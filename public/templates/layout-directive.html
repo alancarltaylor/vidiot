@@ -32,9 +32,12 @@
     <div ng-click="menuClicked()" ng-show="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menu"></div>
 
     <h1 class="center-align">Vidiot.</h1>
+
     <div class="center-align" ng-bind-html="trustHtml(nowPlaying)"></div>
 
-    <div ng-if="!loadedVideos" class="someSpinner"></div>
+    <div ng-if="!nowPlaying" class="loader">Loading...</div>
+
+    <!-- <div ng-if="!loadedVideos" class="someSpinner"></div> -->
 
   </div>
 </div>
