@@ -19,7 +19,7 @@
 
     <div class="container" id="thumbnailContainer">
       <div class=row ng-repeat="thumbnail in thumbnails">
-        <img class=thumbnails src={{thumbnail}}>
+      <img class=thumbnails src={{thumbnail.thumbnail_url}} ng-click="switchVideo(thumbnail)">
       </div>
 
     </div>
@@ -32,7 +32,7 @@
     <div ng-click="menuClicked()" ng-show="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menu"></div>
 
     <h1 class="center-align">Vidiot.</h1>
-    <div class="center-align" ng-bind-html="trustHtml(playlist[0])"></div>
+    <div class="center-align" ng-bind-html="trustHtml(nowPlaying)"></div>
 
     <div ng-if="!loadedVideos" class="someSpinner"></div>
 

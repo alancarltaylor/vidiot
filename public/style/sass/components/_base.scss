@@ -40,8 +40,12 @@ nav{
 
 .thumbnails{
   height: 65px;
-  width: 120px
+  width: 120px;
+  &:hover{
+    cursor:pointer;
+  }
 }
+
 
 #thumbnailContainer{
   margin-top: 10vh;

@@ -26,6 +26,8 @@ nav {
 .thumbnails {
   height: 65px;
   width: 120px; }
+  .thumbnails:hover {
+    cursor: pointer; }
 
 #thumbnailContainer {
   margin-top: 10vh; }
