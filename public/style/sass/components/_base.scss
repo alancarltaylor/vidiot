@@ -21,7 +21,7 @@ body {
 
 #sideNav{
   background-color: gray;
-  height: 100vh;
+  height: 320vh;
 }
 
 .glyphicon-menu-hamburger::before {
@@ -36,4 +36,13 @@ nav{
 
 #filter{
   float: left;
+}
+
+.thumbnails{
+  height: 65px;
+  width: 120px
+}
+
+#thumbnailContainer{
+  margin-top: 10vh;
 }

@@ -24,6 +24,13 @@
           return outputArr;
         }, []);
 
+        $scope.thumbnails = videos.data.data.children.reduce(function(outputArr, curr){
+          if (curr.data.media){
+            outputArr.push(curr.data.media.oembed.thumbnail_url)
+          }
+            return outputArr;
+        }, []);
+
       })
     }
 
