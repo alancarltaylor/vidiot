@@ -1,6 +1,5 @@
 body {
-  background-color: white;
-  color: black;
+  background-color: black;
 }
 
 .player{
@@ -12,10 +11,29 @@ body {
 
 #menu{
   margin-top: 20px;
+  //margin-left: 3%;
+}
+#menuOpen{
+  margin-top: 20px;
   margin-left: 3%;
+  float: right;
 }
 
 #sideNav{
   background-color: gray;
   height: 100vh;
+}
+
+.glyphicon-menu-hamburger::before {
+  color: white;
+  font-size: 40px;
+
+}
+
+nav{
+  background-color: gray;
+}
+
+#filter{
+  float: left;
 }

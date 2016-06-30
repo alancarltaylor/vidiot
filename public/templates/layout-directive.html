@@ -1,24 +1,52 @@
 <div class="row">
 
-<div ng-hide="hideNav" class="col s12 m4 l3" id="sideNav">
-<div class="container">
-  <div ng-click="menuClicked()" ng-hide="hideNav" class="glyphicon glyphicon-menu-hamburger" class="right-align" id="menu"></div>
-  <h1>Some stuff</h1>
+  <div ng-hide="hideNav" class="col s12 m4 l3" id="sideNav">
+
+    <div ng-click="menuClicked()" ng-hide="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menuOpen"></div>
+    <!-- <i class="material-icons" data-beloworigin="true" href='#' data-activates='dropdown1'id="filter">swap_vertical_circle</i> -->
+    <!-- <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a> -->
+
+    <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Sort</a>
+
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><a ng-click='getPlaylist("top.json?sort=top&t=week")'href="#!">Top Week</a></li>
+      <li><a ng-click='getPlaylist("top.json?sort=top&t=month")'href="#!">Top Month</a></li>
+      <li class="divider"></li>
+      <li><a ng-click='getPlaylist("top.json?sort=top&t=year")'href="#!">Top Year</a></li>
+    </ul>
 
 
+
+    <div class="container">
+
+
+    </div>
+
+
+  </div>
+
+  <div class="col s12 m8 l9">
+
+    <div ng-click="menuClicked()" ng-show="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menu"></div>
+
+    <h1 class="center-align">Vidiot.</h1>
+    <div class="center-align" ng-bind-html="trustHtml(playlist[0])"></div>
+
+    <div ng-if="!loadedVideos" class="someSpinner"></div>
+
+  </div>
 </div>
 
+<script type='text/javascript'>
+$('.dropdown-button').dropdown({
+  inDuration: 300,
+  outDuration: 225,
+  constrain_width: false, // Does not change width of dropdown to that of the activator
+  hover: true, // Activate on hover
+  gutter: 0, // Spacing from edge
+  belowOrigin: false, // Displays dropdown below the button
+  alignment: 'left' // Displays dropdown with edge aligned to the left of button
+}
+);
 
-</div>
-
-<div class="col s12 m8 l9">
-
-<div ng-click="menuClicked()" ng-show="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menu"></div>
-
-<h1 class="center-align">Vidiot.</h1>
-<div class="center-align" ng-bind-html="trustHtml(playlist[0])"></div>
-
-<div ng-if="!loadedVideos" class="someSpinner"></div>
-
-</div>
-</div>
+</script>

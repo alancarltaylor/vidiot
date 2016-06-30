@@ -12,15 +12,22 @@
 
   function LayoutController($scope, PlaylistService, $sce){
     $scope.hideNav = true;
-    PlaylistService.getPlaylist()
-    .then(function(videos) {
+    $scope.sortType = "search.json?q=%28and+timestamp%3A1325376000..1328054400+title%3A%27%27%29&sort=top&restrict_sr=on&syntax=cloudsearch"
 
-      $scope.playlist = videos.data.data.children.reduce(function(outputArr, curr){
-        outputArr.push(_.unescape(curr.data.media_embed.content))
-        return outputArr;
-      }, []);
+    $scope.getPlaylist = function(val) {
+      console.log('CALLED GET PLAYLIST', val);
+      PlaylistService.getPlaylist(val)
+      .then(function(videos) {
 
-    })
+        $scope.playlist = videos.data.data.children.reduce(function(outputArr, curr){
+          outputArr.push(_.unescape(curr.data.media_embed.content))
+          return outputArr;
+        }, []);
+
+      })
+    }
+
+    $scope.getPlaylist($scope.sortType);
 
     $scope.trustHtml = function(src) {
       return $sce.trustAsHtml(src);
