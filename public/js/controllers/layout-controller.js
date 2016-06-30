@@ -11,7 +11,7 @@
   ]
 
   function LayoutController($scope, PlaylistService, $sce){
-    $scope.test = "Hello World"
+    $scope.hideNav = true;
     PlaylistService.getPlaylist()
     .then(function(videos) {
 
@@ -19,10 +19,15 @@
         outputArr.push(_.unescape(curr.data.media_embed.content))
         return outputArr;
       }, []);
+
     })
 
     $scope.trustHtml = function(src) {
       return $sce.trustAsHtml(src);
+    }
+
+    $scope.menuClicked = function(){
+      $scope.hideNav = !$scope.hideNav;
     }
 
   }

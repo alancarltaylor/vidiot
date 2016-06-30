@@ -1,5 +1,24 @@
-<h1 class="title">Vidiot.</h1>
+<div class="row">
 
-<div class="player" ng-bind-html="trustHtml(playlist[0])"></div>
+<div ng-hide="hideNav" class="col s12 m4 l3" id="sideNav">
+<div class="container">
+  <div ng-click="menuClicked()" ng-hide="hideNav" class="glyphicon glyphicon-menu-hamburger" class="right-align" id="menu"></div>
+  <h1>Some stuff</h1>
 
-<div ui-view></div>
+
+</div>
+
+
+</div>
+
+<div class="col s12 m8 l9">
+
+<div ng-click="menuClicked()" ng-show="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menu"></div>
+
+<h1 class="center-align">Vidiot.</h1>
+<div class="center-align" ng-bind-html="trustHtml(playlist[0])"></div>
+
+<div ng-if="!loadedVideos" class="someSpinner"></div>
+
+</div>
+</div>
