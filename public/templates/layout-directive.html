@@ -6,13 +6,22 @@
     <!-- <i class="material-icons" data-beloworigin="true" href='#' data-activates='dropdown1'id="filter">swap_vertical_circle</i> -->
     <!-- <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a> -->
 
-    <a class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Sort</a>
+    <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Sort</i>
 
     <ul id='dropdown1' class='dropdown-content'>
       <li><a ng-click='getPlaylist("top.json?sort=top&t=week")'href="#!">Top Week</a></li>
       <li><a ng-click='getPlaylist("top.json?sort=top&t=month")'href="#!">Top Month</a></li>
       <li class="divider"></li>
       <li><a ng-click='getPlaylist("top.json?sort=top&t=year")'href="#!">Top Year</a></li>
+    </ul>
+
+    <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Subreddit</i>
+
+    <ul id='dropdown2' class='dropdown-content'>
+      <li><a ng-click='getPlaylist(sortType, "/r/videos")'href="#!">Videos</a></li>
+      <li><a ng-click='getPlaylist(sortType, "/r/foodhacks")'href="#!">Foodhacks</a></li>
+      <li class="divider"></li>
+      <li><a ng-click='getPlaylist(sortType, "/r/standupcomedy")'href="#!">Standupcomedy</a></li>
     </ul>
 
 

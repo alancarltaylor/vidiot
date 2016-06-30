@@ -10,8 +10,8 @@
 
   function PlaylistService($http){
 
-    this.getPlaylist = function(sortType){
-      return $http.get('https://www.reddit.com/r/videos/'+sortType);
+    this.getPlaylist = function(sortType, sub){
+      return $http.get('https://www.reddit.com'+sub+'/'+sortType);
     }
 
   }
