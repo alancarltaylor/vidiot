@@ -12,7 +12,7 @@
 
   function LayoutController($scope, PlaylistService, $sce){
     $scope.hideNav = true;
-    $scope.sortType = "top.json?sort=top&t=month"
+    $scope.sortType = "top.json?sort=top&t=week"
     $scope.sub = "/r/videos"
     $scope.getPlaylist = function(sort, sub) {
       PlaylistService.getPlaylist(sort, sub)
@@ -25,10 +25,11 @@
           return outputArr;
         }, []);
 
-
+        $scope.sortType = sort;
+        $scope.sub = sub;
 
         $scope.nowPlaying = $scope.playlist[0]
-        
+
 
         $scope.thumbnails = videos.data.data.children.reduce(function(outputArr, curr){
           if (curr.data.media){
