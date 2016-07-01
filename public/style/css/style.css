@@ -11,7 +11,7 @@ body {
 
 #sideNav {
   background-color: gray;
-  height: 1200vh; }
+  height: 500vh; }
 
 .glyphicon-menu-hamburger::before {
   color: white;
@@ -24,10 +24,11 @@ nav {
 #filter {
   float: left; }
 
-.thumbnails {
+#thumbnails {
+  margin: .5vh;
   height: 65px;
   width: 120px; }
-  .thumbnails:hover {
+  #thumbnails:hover {
     cursor: pointer; }
 
 .loader {

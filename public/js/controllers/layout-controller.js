@@ -37,15 +37,9 @@
     $scope.sortType = "top.json?sort=top&t=week"
     $scope.sub = "/r/videos"
     $scope.getPlaylist = function(sort, sub) {
+      $scope.nowPlaying = null;
       PlaylistService.getPlaylist(sort, sub)
       .then(function(videos) {
-
-        // $scope.playlist = videos.data.data.children.reduce(function(outputArr, curr){
-        //   if (curr.data.media_embed.content && curr.data.media.oembed.type === "video"){
-        //   outputArr.push(_.unescape(curr.data.media_embed.content))
-        // }
-        //   return outputArr;
-        // }, []);
 
         $scope.sortType = sort;
         $scope.sub = sub;
