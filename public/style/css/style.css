@@ -11,11 +11,12 @@ body {
 
 #sideNav {
   background-color: gray;
-  height: 320vh; }
+  height: 1200vh; }
 
 .glyphicon-menu-hamburger::before {
   color: white;
-  font-size: 40px; }
+  font-size: 40px;
+  position: relative; }
 
 nav {
   background-color: gray; }
@@ -87,3 +88,7 @@ nav {
 
 #thumbnailContainer {
   margin-top: 10vh; }
+
+.dropdown-button {
+  margin-left: 2%;
+  margin-top: 1%; }

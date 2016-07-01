@@ -5,14 +5,17 @@
     <div ng-click="menuClicked()" ng-hide="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menuOpen"></div>
     <!-- <i class="material-icons" data-beloworigin="true" href='#' data-activates='dropdown1'id="filter">swap_vertical_circle</i> -->
     <!-- <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a> -->
-
+    <div>
     <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Sort</i>
 
     <ul id='dropdown1' class='dropdown-content'>
+      <li><a ng-click='getPlaylist("hot.json", sub)'href="#!">Hot</a></li>
+      <li><a ng-click='getPlaylist("top.json?sort=top&t=day", sub)'href="#!">Top Day</a></li>
       <li><a ng-click='getPlaylist("top.json?sort=top&t=week", sub)'href="#!">Top Week</a></li>
       <li><a ng-click='getPlaylist("top.json?sort=top&t=month", sub)'href="#!">Top Month</a></li>
-      <li class="divider"></li>
       <li><a ng-click='getPlaylist("top.json?sort=top&t=year", sub)'href="#!">Top Year</a></li>
+      <li><a ng-click='getPlaylist("top.json?sort=top&t=all", sub)'href="#!">Top All</a></li>
+      <li><a ng-click='getPlaylist("new.json", sub)'href="#!">New</a></li>
     </ul>
 
     <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Subreddit</i>
@@ -20,10 +23,9 @@
     <ul id='dropdown2' class='dropdown-content'>
       <li><a ng-click='getPlaylist(sortType, "/r/videos")'href="#!">Videos</a></li>
       <li><a ng-click='getPlaylist(sortType, "/r/foodhacks")'href="#!">Foodhacks</a></li>
-      <li class="divider"></li>
       <li><a ng-click='getPlaylist(sortType, "/r/standupcomedy")'href="#!">Standupcomedy</a></li>
     </ul>
-
+    </div>
 
 
     <div class="container" id="thumbnailContainer">
@@ -37,18 +39,27 @@
   </div>
 
   <div class="col s12 m8 l9">
+    <div class="col s3 m3 l3">
 
-    <div ng-click="menuClicked()" ng-show="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menu"></div>
+      <div ng-click="menuClicked()" ng-show="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menu"></div>
 
-    <h1 class="center-align">Vidiot.</h1>
+    </div>
 
-    <div class="center-align" ng-bind-html="trustHtml(nowPlaying)"></div>
+    <div class="col s9 m9 l9">
 
-    <div ng-if="!nowPlaying" class="loader">Loading...</div>
+      <h1 class="center-align">Vidiot.</h1>
 
-    <!-- <div ng-if="!loadedVideos" class="someSpinner"></div> -->
+    <div class="center-align">
 
+    <div class="video-container">
+
+      <div ng-bind-html="trustHtml(nowPlaying)"></div>
+      <div ng-if="!nowPlaying" class="loader">Loading...</div>
+
+    </div>
+    </div>
   </div>
+</div>
 </div>
 
 <script type='text/javascript'>
