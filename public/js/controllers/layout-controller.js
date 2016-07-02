@@ -81,6 +81,15 @@
 
     }
 
+    $scope.newSub = "";
+    $scope.createSub = function(keyEvent, newSub){
+      if (keyEvent.which === 13){
+        $scope.newSub = newSub;
+        $scope.sub = "/r/"+ newSub;
+        $scope.getPlaylist($scope.sortType, $scope.sub);
+      }
+    }
+
   }
 
 }());

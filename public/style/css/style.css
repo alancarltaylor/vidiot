@@ -11,7 +11,7 @@ body {
 
 #sideNav {
   background-color: gray;
-  height: 100vh;
+  height: 97vh;
   overflow: scroll; }
 
 .glyphicon-menu-hamburger::before {

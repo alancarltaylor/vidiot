@@ -24,6 +24,9 @@
       <li><a ng-click='getPlaylist(sortType, "/r/videos")'href="#!">Videos</a></li>
       <li><a ng-click='getPlaylist(sortType, "/r/foodhacks")'href="#!">Foodhacks</a></li>
       <li><a ng-click='getPlaylist(sortType, "/r/standupcomedy")'href="#!">Standupcomedy</a></li>
+      <li><a href="#!"><input id="search" type="search" placeholder="New Sub" ng-model='newSub' ng-keypress='createSub($event, newSub)' ></a>
+      </li>
+
     </ul>
     </div>
 
