@@ -71,7 +71,14 @@
     }
 
     $scope.menuClicked = function(){
+      $scope.navClass = "col s12 m6 l4";
+      $scope.playerClass = "col s0 m6 l8";
       $scope.hideNav = !$scope.hideNav;
+      if ($scope.hideNav){
+        $scope.navClass="col s0 m0 l0";
+        $scope.playerClass = "col s12 m12 l12";
+      }
+
     }
 
   }
