@@ -92,9 +92,20 @@ nav {
   margin-top: 10vh; }
 
 .dropdown-button {
-  margin-left: 2%;
+  margin-left: 5%;
   margin-top: 1%; }
 
 #newSubs {
   padding-top: 2vh;
   padding-left: 2.75%; }
+
+#topNav {
+  background-color: black;
+  margin-left: -3.5%;
+  padding-left: 1.5%;
+  padding-right: 3%;
+  width: 107%;
+  height: 80px; }
+
+#dropdown1 {
+  margin-left: 1.5%; }

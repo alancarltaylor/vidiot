@@ -1,7 +1,7 @@
 <div class="row">
 
   <nav ng-hide="hideNav" class="{{navClass}}" id="sideNav">
-
+  <div id="topNav">
     <div ng-click="menuClicked()" ng-hide="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menuOpen"></div>
     <!-- <i class="material-icons" data-beloworigin="true" href='#' data-activates='dropdown1'id="filter">swap_vertical_circle</i> -->
     <!-- <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a> -->
@@ -35,16 +35,16 @@
 
     </ul>
     </div>
+  </div>
 
 
     <div class="row" id="thumbnailContainer">
 
       <div class="col s4.5 m4.5 l4.5" ng-repeat="thumbnail in thumbnails">
-      <img id=thumbnails src={{thumbnail.thumbnail_url}} ng-click="switchVideo(thumbnail)">
+      <img class="hoverable" id=thumbnails src={{thumbnail.thumbnail_url}} ng-click="switchVideo(thumbnail)">
       </div>
 
     </div>
-
 
   </nav>
 
