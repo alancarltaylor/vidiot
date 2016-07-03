@@ -18,12 +18,18 @@
       <li><a ng-click='getPlaylist("new.json", sub)'href="#!">New</a></li>
     </ul>
 
-    <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Subreddit</i>
+    <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Sub</i>
 
     <ul id='dropdown2' class='dropdown-content'>
       <li><a ng-click='getPlaylist(sortType, "/r/videos")'href="#!">Videos</a></li>
       <li><a ng-click='getPlaylist(sortType, "/r/foodhacks")'href="#!">Foodhacks</a></li>
       <li><a ng-click='getPlaylist(sortType, "/r/standupcomedy")'href="#!">Standupcomedy</a></li>
+
+      <li id="newSubs" ng-repeat="sub in subs">
+        <a class="col s9 m9 l9" ng-click='getPlaylist(sortType, "/r/"+sub)' href="#!" ng-bind='sub'></a>
+        <a class="col s3 m3 l3"><i ng-click='removeSub(sub)' class="tiny material-icons">delete</i></a>
+      </li>
+
       <li><a href="#!"><input id="search" type="search" placeholder="New Sub" ng-model='newSub' ng-keypress='createSub($event, newSub)' ></a>
       </li>
 
