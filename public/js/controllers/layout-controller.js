@@ -36,7 +36,7 @@
     $scope.hideNav = true;
     $scope.sortType = "top.json?sort=top&t=week"
     $scope.sub = "/r/videos"
-    $scope.subs = ["politicalvideos", "funny", "buttstuff"]
+    $scope.subs = ["politicalvideos"]
     $scope.getPlaylist = function(sort, sub) {
       console.log("sub: ", sub);
       $scope.nowPlaying = null;
