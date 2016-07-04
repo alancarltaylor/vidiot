@@ -38,16 +38,16 @@
     $scope.sortType = "top.json?sort=top&t=week"
     $scope.sub = "/r/videos"
     $scope.subs = ["politicalvideos"];
-    $scope.mouseMoving = false;
+    $scope.nowPlaying = {};
     $scope.getPlaylist = function(sort, sub) {
       console.log("sub: ", sub);
-      $scope.nowPlaying = null;
+      $scope.nowPlaying.video = null;
       PlaylistService.getPlaylist(sort, sub)
       .then(function(videos) {
 
         if (videos === "subError"){
           alert("Big ol Error")
-          $scope.nowPlaying = $scope.thumbnails[0].html
+          $scope.nowPlaying.video = $scope.thumbnails[0].html
 
         } else {
 
@@ -68,7 +68,8 @@
           return outputArr;
         }, []);
 
-        $scope.nowPlaying = $scope.thumbnails[0].html
+        $scope.nowPlaying.video = $scope.thumbnails[0].html
+        $scope.nowPlaying.index = 0;
       }
       })
     }
@@ -81,7 +82,9 @@
     }
 
     $scope.switchVideo = function(thumbnail){
-      $scope.nowPlaying = thumbnail.html;
+      $scope.nowPlaying.video = thumbnail.html;
+      $scope.nowPlaying.index = $scope.thumbnails.indexOf(thumbnail)
+      console.log("index: ", $scope.nowPlaying.index);
     }
 
     $scope.getPlaylist($scope.sortType, $scope.sub);
@@ -113,7 +116,27 @@
       }
     }
 
-    
+    $scope.navigate = function(direction, index){
+
+      //$scope.nowPlaying.video = $scope.thumbnails[i].html
+      console.log("nowPlaying: ", $scope.nowPlaying);
+      //console.log("direction: ", direction);
+      //console.log("index of this video: ", indexOf($scope.thumbnails));
+      if (direction === "back" && index > 0){
+        console.log("back");
+        index --;
+        $scope.nowPlaying.video = $scope.thumbnails[index].html;
+        $scope.nowPlaying.index = index;
+      } else if (direction ==="forward" && index < $scope.thumbnails.length - 1){
+        console.log("forward");
+        index ++;
+        $scope.nowPlaying.video = $scope.thumbnails[index].html;
+        $scope.nowPlaying.index = index;
+
+      }
+    }
+
+
 
   }
 
