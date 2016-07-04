@@ -34,9 +34,11 @@
       'youtube.com', 'youtu.be', 'zapiks.com'
     ]
     $scope.hideNav = true;
+    $scope.embedClass = "col s12 m12 l8 push-l2";
     $scope.sortType = "top.json?sort=top&t=week"
     $scope.sub = "/r/videos"
-    $scope.subs = ["politicalvideos"]
+    $scope.subs = ["politicalvideos"];
+    $scope.mouseMoving = false;
     $scope.getPlaylist = function(sort, sub) {
       console.log("sub: ", sub);
       $scope.nowPlaying = null;
@@ -92,10 +94,12 @@
     $scope.menuClicked = function(){
       $scope.navClass = "col s12 m6 l4";
       $scope.playerClass = "col s0 m6 l8";
+      $scope.embedClass = "col s12 m12 l12"
       $scope.hideNav = !$scope.hideNav;
       if ($scope.hideNav){
         $scope.navClass="col s0 m0 l0";
         $scope.playerClass = "col s12 m12 l12";
+        $scope.embedClass = "col s12 m12 l8 push-l2"
       }
 
     }
@@ -108,6 +112,8 @@
 
       }
     }
+
+    
 
   }
 

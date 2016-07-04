@@ -2,7 +2,8 @@
   'use strict';
 
   var dependencies = [
-    'ui.router'
+    'ui.router',
+    'ngAnimate'
   ]
 
   angular.module('vidiot', dependencies)

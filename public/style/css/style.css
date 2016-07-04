@@ -15,7 +15,7 @@ body {
   overflow: scroll; }
 
 .glyphicon-menu-hamburger::before {
-  color: white;
+  color: #333;
   font-size: 40px;
   position: relative; }
 
@@ -109,3 +109,19 @@ nav {
 
 #dropdown1 {
   margin-left: 1.5%; }
+
+#hamburger {
+  position: absolute; }
+
+#playerRow {
+  margin-top: -20px; }
+
+.glyphicon {
+  color: #333;
+  font-size: 40px;
+  margin-left: 6%;
+  margin-right: 6%; }
+
+.inactive {
+  transition: opacity 3s ease;
+  opacity: 0; }

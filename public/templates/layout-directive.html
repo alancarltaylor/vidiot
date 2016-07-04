@@ -1,87 +1,172 @@
 <div class="row">
 
   <nav ng-hide="hideNav" class="{{navClass}}" id="sideNav">
-  <div id="topNav">
-    <div ng-click="menuClicked()" ng-hide="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menuOpen"></div>
-    <!-- <i class="material-icons" data-beloworigin="true" href='#' data-activates='dropdown1'id="filter">swap_vertical_circle</i> -->
-    <!-- <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a> -->
-    <div>
-    <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Sort</i>
+    <div id="topNav">
+      <div ng-click="menuClicked()" ng-hide="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menuOpen"></div>
+      <!-- <i class="material-icons" data-beloworigin="true" href='#' data-activates='dropdown1'id="filter">swap_vertical_circle</i> -->
+      <!-- <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a> -->
+      <div>
+        <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Sort</i>
 
-    <ul id='dropdown1' class='dropdown-content'>
-      <li><a ng-click='getPlaylist("hot.json", sub)'href="#!">Hot</a></li>
-      <li><a ng-click='getPlaylist("top.json?sort=top&t=day", sub)'href="#!">Top Day</a></li>
-      <li><a ng-click='getPlaylist("top.json?sort=top&t=week", sub)'href="#!">Top Week</a></li>
-      <li><a ng-click='getPlaylist("top.json?sort=top&t=month", sub)'href="#!">Top Month</a></li>
-      <li><a ng-click='getPlaylist("top.json?sort=top&t=year", sub)'href="#!">Top Year</a></li>
-      <li><a ng-click='getPlaylist("top.json?sort=top&t=all", sub)'href="#!">Top All</a></li>
-      <li><a ng-click='getPlaylist("new.json", sub)'href="#!">New</a></li>
-    </ul>
+        <ul id='dropdown1' class='dropdown-content'>
+          <li>
+            <a ng-click='getPlaylist("hot.json", sub)' href="#!">Hot</a>
+          </li>
+          <li>
+            <a ng-click='getPlaylist("top.json?sort=top&t=day", sub)' href="#!">Top Day</a>
+          </li>
+          <li>
+            <a ng-click='getPlaylist("top.json?sort=top&t=week", sub)' href="#!">Top Week</a>
+          </li>
+          <li>
+            <a ng-click='getPlaylist("top.json?sort=top&t=month", sub)' href="#!">Top Month</a>
+          </li>
+          <li>
+            <a ng-click='getPlaylist("top.json?sort=top&t=year", sub)' href="#!">Top Year</a>
+          </li>
+          <li>
+            <a ng-click='getPlaylist("top.json?sort=top&t=all", sub)' href="#!">Top All</a>
+          </li>
+          <li>
+            <a ng-click='getPlaylist("new.json", sub)' href="#!">New</a>
+          </li>
+        </ul>
 
-    <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Sub</i>
+        <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown2'>Sub</i>
 
-    <ul id='dropdown2' class='dropdown-content'>
-      <li><a ng-click='getPlaylist(sortType, "/r/videos")'href="#!">Videos</a></li>
-      <li><a ng-click='getPlaylist(sortType, "/r/foodhacks")'href="#!">Foodhacks</a></li>
-      <li><a ng-click='getPlaylist(sortType, "/r/standupcomedy")'href="#!">Standupcomedy</a></li>
+        <ul id='dropdown2' class='dropdown-content'>
+          <li>
+            <a ng-click='getPlaylist(sortType, "/r/videos")' href="#!">Videos</a>
+          </li>
+          <li>
+            <a ng-click='getPlaylist(sortType, "/r/foodhacks")' href="#!">Foodhacks</a>
+          </li>
+          <li>
+            <a ng-click='getPlaylist(sortType, "/r/standupcomedy")' href="#!">Standupcomedy</a>
+          </li>
 
-      <li id="newSubs" ng-repeat="sub in subs">
-        <a class="col s9 m9 l9" ng-click='getPlaylist(sortType, "/r/"+sub)' href="#!" ng-bind='sub'></a>
-        <a class="col s3 m3 l3"><i ng-click='removeSub(sub)' class="tiny material-icons">delete</i></a>
-      </li>
+          <li id="newSubs" ng-repeat="sub in subs">
+            <a class="col s9 m9 l9" ng-click='getPlaylist(sortType, "/r/"+sub)' href="#!" ng-bind='sub'></a>
+            <a class="col s3 m3 l3">
+              <i ng-click='removeSub(sub)' class="tiny material-icons">delete</i>
+            </a>
+          </li>
 
-      <li><a href="#!"><input id="search" type="search" placeholder="New Sub" ng-model='newSub' ng-keypress='createSub($event, newSub)' ></a>
-      </li>
+          <li>
+            <a href="#!"><input id="search" type="search" placeholder="New Sub" ng-model='newSub' ng-keypress='createSub($event, newSub)'></a>
+          </li>
 
-    </ul>
+        </ul>
+      </div>
     </div>
-  </div>
-
 
     <div class="row" id="thumbnailContainer">
 
       <div class="col s4.5 m4.5 l4.5" ng-repeat="thumbnail in thumbnails">
-      <img class="hoverable" id=thumbnails src={{thumbnail.thumbnail_url}} ng-click="switchVideo(thumbnail)">
+        <img class="hoverable" id=thumbnails src={{thumbnail.thumbnail_url}} ng-click="switchVideo(thumbnail)">
       </div>
 
     </div>
 
   </nav>
 
-  <div class="{{playerClass}}">
-    <div class="col s3 m3 l1">
+  <div id="playerContainer" class="{{playerClass}}">
 
-      <div ng-click="menuClicked()" ng-show="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menu"></div>
+    <div id="stuffToHide" class="row">
 
+      <div id="playerHeader" class="col s12 m12 l12">
+
+        <div id="hamburger" class="col s3 m3 l1">
+          <div>
+
+            <div ng-click="menuClicked()" ng-show="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menu"></div>
+
+          </div>
+
+        </div>
+
+        <div class="col s12 m12 l12">
+
+          <h3 class="center-align">Vidiot.</h3>
+
+        </div>
+      </div>
+    </div>
+    <div id="playerRow" class="row">
+      <div class="{{embedClass}}">
+
+        <div class="center-align">
+
+          <div class="video-container">
+
+            <div ng-bind-html="trustHtml(nowPlaying)"></div>
+            <div ng-if="!nowPlaying" class="loader">Loading...</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="col s9 m9 l11">
+    <div id="stuffToHide2" class="center-align">
 
-      <h1 class="center-align">Vidiot.</h1>
+      <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+      <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 
-    <div class="center-align">
-
-    <div class="video-container">
-
-      <div ng-bind-html="trustHtml(nowPlaying)"></div>
-      <div ng-if="!nowPlaying" class="loader">Loading...</div>
-
-    </div>
     </div>
   </div>
 </div>
-</div>
 
 <script type='text/javascript'>
-$('.dropdown-button').dropdown({
-  inDuration: 300,
-  outDuration: 225,
-  constrain_width: false, // Does not change width of dropdown to that of the activator
-  hover: true, // Activate on hover
-  gutter: 0, // Spacing from edge
-  belowOrigin: false, // Displays dropdown below the button
-  alignment: 'left' // Displays dropdown with edge aligned to the left of button
-}
-);
+  var timeoutID;
+  var el = document.getElementById("playerContainer");
 
+  function setup() {
+    el.addEventListener("mousemove", resetTimer, false);
+    el.addEventListener("mousedown", resetTimer, false);
+    el.addEventListener("keypress", resetTimer, false);
+    el.addEventListener("DOMMouseScroll", resetTimer, false);
+    el.addEventListener("mousewheel", resetTimer, false);
+    el.addEventListener("touchmove", resetTimer, false);
+    el.addEventListener("MSPointerMove", resetTimer, false);
+
+    startTimer();
+  }
+
+  setup();
+
+  function startTimer() {
+    // wait 2 seconds before calling goInactive
+    timeoutID = window.setTimeout(goInactive, 3000);
+  }
+
+  function resetTimer(e) {
+    window.clearTimeout(timeoutID);
+
+    goActive();
+  }
+
+  function goInactive() {
+    $('#stuffToHide').addClass("inactive")
+    $('#stuffToHide2').addClass("inactive")
+    console.log("============================you are inactive!!!!!!++++++=================+++++++++++++++++++===========")
+
+    // do something
+  }
+
+  function goActive() {
+    $('#stuffToHide').removeClass("inactive")
+    $('#stuffToHide2').removeClass("inactive")
+    console.log("you are active--------------------")
+    // do something
+
+    startTimer();
+  }
+
+  $('.dropdown-button').dropdown({
+    inDuration: 300, outDuration: 225, constrain_width: false, // Does not change width of dropdown to that of the activator
+    hover: true, // Activate on hover
+    gutter: 0, // Spacing from edge
+    belowOrigin: false, // Displays dropdown below the button
+    alignment: 'left' // Displays dropdown with edge aligned to the left of button
+  });
 </script>
