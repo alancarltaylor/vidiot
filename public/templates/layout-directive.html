@@ -99,8 +99,9 @@
 
           <div class="video-container">
 
+            <div ng-if="!nowPlaying.video" class="loader">Loading...</div>
             <div ng-bind-html="trustHtml(nowPlaying.video)"></div>
-            <div ng-if="!nowPlaying" class="loader">Loading...</div>
+
           </div>
         </div>
       </div>
@@ -109,7 +110,8 @@
     <div id="stuffToHide2" class="center-align">
 
       <span ng-click="navigate('back', nowPlaying.index)"class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-      <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+      <span ng-click="playPause()" ng-show="!play" class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+      <span ng-click="playPause()" ng-show="play" class="glyphicon glyphicon-play" aria-hidden="true"></span>
       <span ng-click="navigate('forward', nowPlaying.index)" class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 
     </div>
@@ -119,6 +121,8 @@
 <script type='text/javascript'>
   var timeoutID;
   var el = document.getElementById("playerContainer");
+
+  
 
   function setup() {
     el.addEventListener("mousemove", resetTimer, false);

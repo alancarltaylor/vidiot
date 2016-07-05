@@ -35,15 +35,17 @@
     ]
     $scope.hideNav = true;
     $scope.embedClass = "col s12 m12 l8 push-l2";
-    $scope.sortType = "top.json?sort=top&t=week"
-    $scope.sub = "/r/videos"
+    $scope.sortType = "top.json?sort=top&t=day";
+    $scope.sub = "/r/videos";
     $scope.subs = ["politicalvideos"];
     $scope.nowPlaying = {};
+    $scope.play = false;
     $scope.getPlaylist = function(sort, sub) {
       console.log("sub: ", sub);
       $scope.nowPlaying.video = null;
       PlaylistService.getPlaylist(sort, sub)
       .then(function(videos) {
+
 
         if (videos === "subError"){
           alert("Big ol Error")
@@ -61,14 +63,14 @@
 
 
         $scope.thumbnails = videos.data.data.children.reduce(function(outputArr, curr){
-          if (curr.data.media && $scope.domains.indexOf(curr.data.domain) !== -1){
+          if (curr.data.media && ($scope.domains.indexOf(curr.data.domain) !== -1)){
             curr.data.media.oembed.html = _.unescape(curr.data.media.oembed.html)
             outputArr.push(curr.data.media.oembed)
           }
           return outputArr;
         }, []);
-
         $scope.nowPlaying.video = $scope.thumbnails[0].html
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$scope.nowPlaying.video: ", $scope.nowPlaying.video);
         $scope.nowPlaying.index = 0;
       }
       })
@@ -136,8 +138,10 @@
       }
     }
 
-
-
+    $scope.playPause = function(){
+      $scope.play = !$scope.play;
+    }
   }
+
 
 }());
