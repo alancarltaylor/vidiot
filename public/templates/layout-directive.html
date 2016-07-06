@@ -1,7 +1,7 @@
 
 <div class="row">
 
-  <nav ng-hide="hideNav" class="{{navClass}}" id="sideNav">
+  <nav  ng-hide="hideNav" class="{{navClass}}" id="sideNav">
     <div id="topNav">
       <div ng-click="menuClicked()" ng-hide="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menuOpen"></div>
       <!-- <i class="material-icons" data-beloworigin="true" href='#' data-activates='dropdown1'id="filter">swap_vertical_circle</i> -->
@@ -160,22 +160,6 @@
 
 
 
-  $(document).keydown(function(e) {
-  if (e.which == 39) {
-    console.log("you pushed the right arrow")
-    window.rightKeyPushed = true;
-  } else if (e.which == 37){
-    console.log("you pushed the left arrow")
-    window.leftKeyPushed = true;
-  } else if (e.which == 70){
-    console.log("you pushed 'f'")
-    window.fKeyPushed = true;
-  } else if (e.which == 32){
-    window.spacebarPushed = true;
-    console.log("you pushed the spacebar")
-  }
-
-});
 
 
 

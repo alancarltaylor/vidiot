@@ -2,6 +2,7 @@
   'use strict';
 
   angular.module('vidiot')
+
   .controller('LayoutController', LayoutController)
 
   LayoutController.$inject = [
@@ -11,7 +12,8 @@
     '$log'
   ]
 
-  function LayoutController($scope, PlaylistService, $sce, $log){
+  function LayoutController($scope, PlaylistService, $sce, $log, $rootScope){
+
     $scope.domains =  [
       '5min.com', 'abcnews.go.com', 'animal.discovery.com', 'animoto.com', 'atom.com',
       'bambuser.com', 'bigthink.com', 'blip.tv', 'break.com',
@@ -139,6 +141,10 @@
 
     }
 
+    $scope.displaymessage = function(message){
+      console.log(message);
+    }
+
     $scope.newSub = "";
     $scope.createSub = function(keyEvent, newSub){
       if (keyEvent.which === 13){
@@ -176,6 +182,29 @@
 
       }
     }
+
+    $scope.$on("right-arrow", function(e, data){
+
+      $scope.navigate("forward", $scope.nowPlaying.index)
+    })
+
+    $scope.$on("left-arrow", function(e, data){
+
+      $scope.navigate("back", $scope.nowPlaying.index)
+    })
+
+    // $scope.$on("f", function(e, data){
+    //   console.log("rigth arrow from layout controller");
+    //
+    //   $scope.navigate("forward", $scope.nowPlaying.index)
+    // })
+    //
+    // $scope.$on("spacebar", function(e, data){
+    //   console.log("rigth arrow from layout controller");
+    //
+    //   $scope.navigate("forward", $scope.nowPlaying.index)
+    // })
+
 
     // $scope.playPause = function(){
     //   $scope.play = !$scope.play;

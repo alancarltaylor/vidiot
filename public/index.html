@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="vidiot">
+<html lang="en" ng-app="vidiot" ng-controller="keyevent" ng-keyup="keyStuff($event)">
 <head>
   <meta charset="UTF-8">
 
@@ -39,6 +39,7 @@
 
   <!-- angular controllers -->
   <script src="/js/controllers/layout-controller.js"></script>
+  <script src="/js/controllers/keyevent-controller.js"></script>
 
   <!-- angular directives -->
   <script src="/js/directives/layout-directive.js"></script>
@@ -51,7 +52,7 @@
 
   <title>Vidiot</title>
 </head>
-<body >
+<body>
 
   <div ui-view></div>
 

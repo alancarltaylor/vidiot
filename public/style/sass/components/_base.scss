@@ -142,6 +142,13 @@ nav{
   -webkit-animation: load6 1.7s infinite ease;
   animation: load6 1.7s infinite ease;
 }
+
+// @media (max-width: 992px) {
+//   .facet_sidebar {
+//     display: none;
+//   }
+// }
+
 @-webkit-keyframes load6 {
   0% {
     -webkit-transform: rotate(0deg);
