@@ -52,7 +52,7 @@
     $scope.hideNav = true;
     $scope.hoverTitle = "";
     $scope.embedClass = "col s12 m12 l8 push-l2";
-    $scope.sortType = "top.json?sort=top&t=day";
+    $scope.sortType = "top.json?sort=top&t=week";
     $scope.sub = "/r/videos";
     $scope.subs = ["Politicalvideos"];
     $scope.nowPlaying = {};
