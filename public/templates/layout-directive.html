@@ -116,7 +116,6 @@
       <!-- <span id="nowPlayingTitle">{{nowPlaying.title}}</span> -->
 
       <span ng-click="navigate('back', nowPlaying.index)"class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-
       <span ng-click="navigate('forward', nowPlaying.index)" class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
     </div>
   </div>
@@ -136,6 +135,9 @@
     el.addEventListener("mousewheel", resetTimer, false);
     el.addEventListener("touchmove", resetTimer, false);
     el.addEventListener("MSPointerMove", resetTimer, false);
+    el.addEventListener("touchstart", resetTimer, false);
+    el.addEventListener("touchmove", resetTimer, false);
+    el.addEventListener("touchend", resetTimer, false);
 
     startTimer();
   }

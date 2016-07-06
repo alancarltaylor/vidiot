@@ -34,7 +34,7 @@
       'youtube.com', 'youtu.be', 'zapiks.com'
     ]
     $scope.defunctUrls = [
-      "https://i.ytimg.com/vi/fOL20yOKqGg/hqdefault.jpg", 'https://i.ytimg.com/vi/GnjLPXZIkQM/hqdefault.jpg', "https://i.ytimg.com/vi/0hGiW1_aym8/hqdefault.jpg", "https://i.ytimg.com/vi/1e3XOejppak/hqdefault.jpg",
+      "", "https://i.ytimg.com/vi/fOL20yOKqGg/hqdefault.jpg", 'https://i.ytimg.com/vi/GnjLPXZIkQM/hqdefault.jpg', "https://i.ytimg.com/vi/0hGiW1_aym8/hqdefault.jpg", "https://i.ytimg.com/vi/1e3XOejppak/hqdefault.jpg",
       "https://i.ytimg.com/vi/r2UqT6SZ7CU/hqdefault.jpg", "https://i.ytimg.com/vi/q8eHo5QHlTA/hqdefault.jpg", "https://i.ytimg.com/vi/kODnzx694PQ/hqdefault.jpg", "https://i.ytimg.com/vi/-q69mE40Lz8/hqdefault.jpg",
       "https://i.ytimg.com/vi/c_orOT3Prwg/hqdefault.jpg", "http://i.ytimg.com/vi/QSZmV_3Lm_A/hqdefault.jpg", "https://i.ytimg.com/vi/MTXrOKyBa0I/hqdefault.jpg", "https://i.ytimg.com/vi/Ez4-jddoBgc/hqdefault.jpg",
       "https://i.ytimg.com/vi/iu0O86y0G6M/hqdefault.jpg", "https://i.ytimg.com/vi/kODnzx694PQ/hqdefault.jpg", "https://i.ytimg.com/vi/u4fOZ-JVL_g/hqdefault.jpg", "https://i.ytimg.com/vi/PF4rl8ZlFWI/hqdefault.jpg",
@@ -57,7 +57,7 @@
     $scope.fKeyPushed = false;
     $scope.spacebarPushed = false;
 
-  
+
     $scope.setHoverTitle = function(hoverTitle){
       $scope.hoverTitle = hoverTitle;
     }
@@ -129,7 +129,7 @@
     $scope.menuClicked = function(){
       $scope.navClass = "col s12 m12 l4";
       $scope.playerClass = "col s0 m0 l8";
-      $scope.embedClass = "col s12 m12 l12"
+      $scope.embedClass = "col s0 m0 l12";
       $scope.hideNav = !$scope.hideNav;
       if ($scope.hideNav){
         $scope.navClass="col s0 m0 l0";
