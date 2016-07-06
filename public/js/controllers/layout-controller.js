@@ -154,8 +154,8 @@
 
     $scope.menuClicked = function(){
       $scope.navClass = "col s12 m12 l4";
-      $scope.playerClass = "col s0 m0 l8";
-      $scope.embedClass = "col s0 m0 l12";
+      $scope.playerClass = "col s12 m12 l8";
+      $scope.embedClass = "col s12 m12 l12";
       $scope.hideNav = !$scope.hideNav;
       if ($scope.hideNav){
         $scope.navClass="col s0 m0 l0";
