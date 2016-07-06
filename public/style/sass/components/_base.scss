@@ -16,6 +16,7 @@ body {
 #sideNav{
   background-color: #333;
   height: 97vh;
+  min-height: 70vh;
   // overflow: scroll;
 
 }
@@ -48,7 +49,7 @@ nav{
 
 
 #thumbnailContainer{
-  margin-top: 10vh;
+  margin-top: 60px;
   margin-left: 5%;
   position: relative;
   background-color: #333;
@@ -92,6 +93,9 @@ nav{
   font-size: 40px;
   margin-left: 6%;
   margin-right: 6%;
+  &:hover{
+    cursor:pointer;
+  }
 }
 
 .inactive {
@@ -115,6 +119,7 @@ nav{
   overflow: scroll;
   max-width: 33%;
   max-height: 50px;
+  min-height: 50px;
 }
 
 #vidiot{

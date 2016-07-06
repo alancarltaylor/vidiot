@@ -33,12 +33,23 @@
       'wordpress.tv', 'worldstarhiphop.com', 'xtranormal.com',
       'youtube.com', 'youtu.be', 'zapiks.com'
     ]
+    $scope.defunctUrls = [
+      "https://i.ytimg.com/vi/fOL20yOKqGg/hqdefault.jpg", 'https://i.ytimg.com/vi/GnjLPXZIkQM/hqdefault.jpg', "https://i.ytimg.com/vi/0hGiW1_aym8/hqdefault.jpg", "https://i.ytimg.com/vi/1e3XOejppak/hqdefault.jpg",
+      "https://i.ytimg.com/vi/r2UqT6SZ7CU/hqdefault.jpg", "https://i.ytimg.com/vi/q8eHo5QHlTA/hqdefault.jpg", "https://i.ytimg.com/vi/kODnzx694PQ/hqdefault.jpg", "https://i.ytimg.com/vi/-q69mE40Lz8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/c_orOT3Prwg/hqdefault.jpg", "http://i.ytimg.com/vi/QSZmV_3Lm_A/hqdefault.jpg", "https://i.ytimg.com/vi/MTXrOKyBa0I/hqdefault.jpg", "https://i.ytimg.com/vi/Ez4-jddoBgc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/iu0O86y0G6M/hqdefault.jpg", "https://i.ytimg.com/vi/kODnzx694PQ/hqdefault.jpg", "https://i.ytimg.com/vi/u4fOZ-JVL_g/hqdefault.jpg", "https://i.ytimg.com/vi/PF4rl8ZlFWI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/hhfT_uqO81g/hqdefault.jpg", "https://i.ytimg.com/vi/Yp9LYh0i79U/hqdefault.jpg", "https://i.ytimg.com/vi/CCWLbSka_H8/hqdefault.jpg", "https://i.ytimg.com/vi/4ipZliHoOxA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/owJ2sCujYuc/hqdefault.jpg", "https://i.ytimg.com/vi/Jc0tb3hjvcE/hqdefault.jpg", "https://i.ytimg.com/vi/hAKSd_tAU8E/hqdefault.jpg", "https://i.ytimg.com/vi/vrx8Ji8giL4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/t2CpfE04YPg/hqdefault.jpg", "https://i.ytimg.com/vi/cqsVPHBbV-s/hqdefault.jpg", "http://i1.ytimg.com/vi/dvMssEgp1ko/hqdefault.jpg", "http://i4.ytimg.com/vi/KFlaaa8fGoE/hqdefault.jpg",
+      "http://i.ytimg.com/vi/iVgTVlWCTfM/hqdefault.jpg", "http://i1.ytimg.com/vi/AgkH1T7o_VM/hqdefault.jpg", "http://i1.ytimg.com/vi/IMjWJl9LVsA/hqdefault.jpg", "http://i1.ytimg.com/vi/aqaj4UTWCp4/hqdefault.jpg",
+      "http://i.ytimg.com/vi/l2dJqN3Q4OY/hqdefault.jpg", "http://i4.ytimg.com/vi/WJIuYgIvKsc/hqdefault.jpg"]
+
     $scope.hideNav = true;
     $scope.hoverTitle = "";
     $scope.embedClass = "col s12 m12 l8 push-l2";
     $scope.sortType = "top.json?sort=top&t=day";
     $scope.sub = "/r/videos";
-    $scope.subs = ["politicalvideos"];
+    $scope.subs = ["Politicalvideos"];
     $scope.nowPlaying = {};
     $scope.play = false;
     $scope.key = function(message){
@@ -53,7 +64,7 @@
     }
     $scope.getPlaylist = function(sort, sub) {
       console.log("sub: ", sub);
-      $scope.nowPlaying.video = null;
+      // $scope.nowPlaying.video = null;
       PlaylistService.getPlaylist(sort, sub)
       .then(function(videos) {
 
@@ -75,12 +86,13 @@
 
 
         $scope.thumbnails = videos.data.data.children.reduce(function(outputArr, curr){
-          if (curr.data.media && ($scope.domains.indexOf(curr.data.domain) !== -1)){
+          if (curr.data.media && ($scope.domains.indexOf(curr.data.domain) !== -1) && ($scope.defunctUrls.indexOf(curr.data.media.oembed.thumbnail_url) === -1)){
             curr.data.media.oembed.html = _.unescape(curr.data.media.oembed.html)
             outputArr.push(curr.data.media.oembed)
           }
           return outputArr;
         }, []);
+
         $scope.nowPlaying.video = $scope.thumbnails[0].html
         $scope.nowPlaying.index = 0;
         $scope.nowPlaying.title = $scope.thumbnails[0].title
