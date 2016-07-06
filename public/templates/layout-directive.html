@@ -124,6 +124,7 @@
 <script type='text/javascript'>
   var timeoutID;
   var el = document.getElementById("playerContainer");
+  var le = document.body;
 
 
 
@@ -135,9 +136,11 @@
     el.addEventListener("mousewheel", resetTimer, false);
     el.addEventListener("touchmove", resetTimer, false);
     el.addEventListener("MSPointerMove", resetTimer, false);
-    el.addEventListener("touchstart", resetTimer, false);
-    el.addEventListener("touchmove", resetTimer, false);
-    el.addEventListener("touchend", resetTimer, false);
+    le.addEventListener("touchstart", resetTimer, false);
+    le.addEventListener("touchmove", resetTimer, false);
+    le.addEventListener("touchend", resetTimer, false);
+    le.addEventListener("touchleave", resetTimer, false);
+    le.addEventListener("touchcancel", resetTimer, false);
 
     startTimer();
   }
