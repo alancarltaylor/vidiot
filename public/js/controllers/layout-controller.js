@@ -9,10 +9,11 @@
     '$scope',
     'PlaylistService',
     '$sce',
-    '$log'
+    '$log',
+  
   ]
 
-  function LayoutController($scope, PlaylistService, $sce, $log, $rootScope){
+  function LayoutController($scope, PlaylistService, $sce, $log, $rootScope, Fullscreen){
 
     $scope.domains =  [
       '5min.com', 'abcnews.go.com', 'animal.discovery.com', 'animoto.com', 'atom.com',

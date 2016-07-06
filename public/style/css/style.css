@@ -14,6 +14,9 @@ body {
   height: 97vh;
   min-height: 70vh; }
 
+#playerContainer {
+  height: 100vh; }
+
 .glyphicon-menu-hamburger::before {
   color: gray;
   font-size: 40px;

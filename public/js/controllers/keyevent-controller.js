@@ -18,8 +18,9 @@
         $rootScope.$broadcast("left-arrow", "left")
 
       } else if (e.which == 70){
-        console.log("you pushed 'f'")
-        $rootScope.$broadcast("f", "f")
+        //console.log("you pushed 'f'")
+        //Fullscreen.all()
+        // $rootScope.$broadcast("f", "f")
 
       } else if (e.which == 32){
         console.log("you pushed the spacebar")

@@ -4,6 +4,7 @@
   var dependencies = [
     'ui.router',
     'ngAnimate'
+
   ]
 
   angular.module('vidiot', dependencies)
