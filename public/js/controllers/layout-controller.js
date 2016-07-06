@@ -42,7 +42,7 @@
       "https://i.ytimg.com/vi/owJ2sCujYuc/hqdefault.jpg", "https://i.ytimg.com/vi/Jc0tb3hjvcE/hqdefault.jpg", "https://i.ytimg.com/vi/hAKSd_tAU8E/hqdefault.jpg", "https://i.ytimg.com/vi/vrx8Ji8giL4/hqdefault.jpg",
       "https://i.ytimg.com/vi/t2CpfE04YPg/hqdefault.jpg", "https://i.ytimg.com/vi/cqsVPHBbV-s/hqdefault.jpg", "http://i1.ytimg.com/vi/dvMssEgp1ko/hqdefault.jpg", "http://i4.ytimg.com/vi/KFlaaa8fGoE/hqdefault.jpg",
       "http://i.ytimg.com/vi/iVgTVlWCTfM/hqdefault.jpg", "http://i1.ytimg.com/vi/AgkH1T7o_VM/hqdefault.jpg", "http://i1.ytimg.com/vi/IMjWJl9LVsA/hqdefault.jpg", "http://i1.ytimg.com/vi/aqaj4UTWCp4/hqdefault.jpg",
-      "http://i.ytimg.com/vi/l2dJqN3Q4OY/hqdefault.jpg", "http://i4.ytimg.com/vi/WJIuYgIvKsc/hqdefault.jpg"]
+      "http://i.ytimg.com/vi/l2dJqN3Q4OY/hqdefault.jpg", "http://i4.ytimg.com/vi/WJIuYgIvKsc/hqdefault.jpg", "https://i.ytimg.com/vi/fopHwQQ1fGg/hqdefault.jpg"]
 
     $scope.hideNav = true;
     $scope.hoverTitle = "";
@@ -52,10 +52,12 @@
     $scope.subs = ["Politicalvideos"];
     $scope.nowPlaying = {};
     $scope.play = false;
-    $scope.key = function(message){
-      console.log(message);
-    }
+    $scope.rightKeyPushed = false;
+    $scope.leftKeyPushed = false;
+    $scope.fKeyPushed = false;
+    $scope.spacebarPushed = false;
 
+  
     $scope.setHoverTitle = function(hoverTitle){
       $scope.hoverTitle = hoverTitle;
     }
@@ -149,11 +151,11 @@
     $scope.navigate = function(direction, index){
 
       //$scope.nowPlaying.video = $scope.thumbnails[i].html
-      console.log("nowPlaying: ", $scope.nowPlaying);
+      // console.log("nowPlaying: ", $scope.nowPlaying);
       //console.log("direction: ", direction);
       //console.log("index of this video: ", indexOf($scope.thumbnails));
       if (direction === "back" && index > 0){
-        console.log("back");
+        // console.log("back");
         $scope.thumbnails[index].active = false
         index --;
         $scope.nowPlaying.video = $scope.thumbnails[index].html;
@@ -161,7 +163,7 @@
         $scope.nowPlaying.title = $scope.thumbnails[index].title;
         $scope.thumbnails[index].active = true;
       } else if (direction ==="forward" && index < $scope.thumbnails.length - 1){
-        console.log("forward");
+        // console.log("forward");
         $scope.thumbnails[index].active = false
 
         index ++;

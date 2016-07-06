@@ -153,10 +153,32 @@
     goActive();
   }
 
+
+
+  $(document).keydown(function(e) {
+  if (e.which == 39) {
+    console.log("you pushed the right arrow")
+    window.rightKeyPushed = true;
+  } else if (e.which == 37){
+    console.log("you pushed the left arrow")
+    window.leftKeyPushed = true;
+  } else if (e.which == 70){
+    console.log("you pushed 'f'")
+    window.fKeyPushed = true;
+  } else if (e.which == 32){
+    window.spacebarPushed = true;
+    console.log("you pushed the spacebar")
+  }
+
+});
+
+
+
+
+
   function goInactive() {
     $('#stuffToHide').addClass("inactive")
     $('#stuffToHide2').addClass("inactive")
-    console.log("============================you are inactive!!!!!!++++++=================+++++++++++++++++++===========")
 
     // do something
   }
@@ -164,7 +186,6 @@
   function goActive() {
     $('#stuffToHide').removeClass("inactive")
     $('#stuffToHide2').removeClass("inactive")
-    console.log("you are active--------------------")
     // do something
 
     startTimer();

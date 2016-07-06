@@ -86,7 +86,6 @@ nav {
 #hoverTitle {
   font-size: 20px;
   position: absolute;
-  overflow: scroll;
   max-width: 33%;
   max-height: 50px;
   min-height: 50px; }
