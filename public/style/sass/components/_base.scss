@@ -14,13 +14,16 @@ body {
 }
 
 #sideNav{
-  background-color: gray;
+  background-color: #333;
   height: 97vh;
-  overflow: scroll;
+  // overflow: scroll;
+
 }
 
+
+
 .glyphicon-menu-hamburger::before {
-  color: #333;
+  color: gray;
   font-size: 40px;
   position: relative;
 
@@ -36,8 +39,8 @@ nav{
 
 #thumbnails{
   margin: .5vh;
-  height: 65px;
-  width: 120px;
+  height: 80px;
+  width: 100px;
   &:hover{
     cursor:pointer;
   }
@@ -46,6 +49,12 @@ nav{
 
 #thumbnailContainer{
   margin-top: 10vh;
+  margin-left: 5%;
+  position: relative;
+  background-color: #333;
+  height: 70vh;
+  overflow: scroll;
+
 }
 .dropdown-button{
   margin-left: 5%;
@@ -79,7 +88,7 @@ nav{
 }
 
 .glyphicon{
-  color: #333;
+  color: gray;
   font-size: 40px;
   margin-left: 6%;
   margin-right: 6%;
@@ -90,6 +99,26 @@ nav{
   transition: opacity 3s ease;
   opacity: 0;
 
+}
+
+.green{
+  border: 5px solid green;
+}
+
+#nowPlayingTitle{
+  font-size: 20px;
+}
+
+#hoverTitle{
+  font-size: 20px;
+  position: absolute;
+  overflow: scroll;
+  max-width: 33%;
+  max-height: 50px;
+}
+
+#vidiot{
+  color: gray;
 }
 
 .loader {

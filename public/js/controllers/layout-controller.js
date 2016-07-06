@@ -34,12 +34,23 @@
       'youtube.com', 'youtu.be', 'zapiks.com'
     ]
     $scope.hideNav = true;
+    $scope.hoverTitle = "";
     $scope.embedClass = "col s12 m12 l8 push-l2";
     $scope.sortType = "top.json?sort=top&t=day";
     $scope.sub = "/r/videos";
     $scope.subs = ["politicalvideos"];
     $scope.nowPlaying = {};
     $scope.play = false;
+    $scope.key = function(message){
+      console.log(message);
+    }
+
+    $scope.setHoverTitle = function(hoverTitle){
+      $scope.hoverTitle = hoverTitle;
+    }
+    $scope.removeHoverTitle=function(){
+      $scope.hoverTitle = "";
+    }
     $scope.getPlaylist = function(sort, sub) {
       console.log("sub: ", sub);
       $scope.nowPlaying.video = null;
@@ -48,7 +59,8 @@
 
 
         if (videos === "subError"){
-          alert("Big ol Error")
+          alert("This sort with this sub has no videos :(")
+          $scope.newSub= "";
           $scope.nowPlaying.video = $scope.thumbnails[0].html
 
         } else {
@@ -70,8 +82,9 @@
           return outputArr;
         }, []);
         $scope.nowPlaying.video = $scope.thumbnails[0].html
-        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$scope.nowPlaying.video: ", $scope.nowPlaying.video);
         $scope.nowPlaying.index = 0;
+        $scope.nowPlaying.title = $scope.thumbnails[0].title
+        $scope.thumbnails[0].active = true;
       }
       })
     }
@@ -84,8 +97,11 @@
     }
 
     $scope.switchVideo = function(thumbnail){
+      $scope.thumbnails[$scope.nowPlaying.index].active = false;
       $scope.nowPlaying.video = thumbnail.html;
       $scope.nowPlaying.index = $scope.thumbnails.indexOf(thumbnail)
+      $scope.nowPlaying.title = thumbnail.title;
+      $scope.thumbnails[$scope.nowPlaying.index].active = true;
       console.log("index: ", $scope.nowPlaying.index);
     }
 
@@ -97,8 +113,8 @@
     }
 
     $scope.menuClicked = function(){
-      $scope.navClass = "col s12 m6 l4";
-      $scope.playerClass = "col s0 m6 l8";
+      $scope.navClass = "col s12 m12 l4";
+      $scope.playerClass = "col s0 m0 l8";
       $scope.embedClass = "col s12 m12 l12"
       $scope.hideNav = !$scope.hideNav;
       if ($scope.hideNav){
@@ -126,21 +142,30 @@
       //console.log("index of this video: ", indexOf($scope.thumbnails));
       if (direction === "back" && index > 0){
         console.log("back");
+        $scope.thumbnails[index].active = false
         index --;
         $scope.nowPlaying.video = $scope.thumbnails[index].html;
         $scope.nowPlaying.index = index;
+        $scope.nowPlaying.title = $scope.thumbnails[index].title;
+        $scope.thumbnails[index].active = true;
       } else if (direction ==="forward" && index < $scope.thumbnails.length - 1){
         console.log("forward");
+        $scope.thumbnails[index].active = false
+
         index ++;
         $scope.nowPlaying.video = $scope.thumbnails[index].html;
         $scope.nowPlaying.index = index;
+        $scope.nowPlaying.title = $scope.thumbnails[index].title
+        $scope.thumbnails[index].active = true;
+
+
 
       }
     }
 
-    $scope.playPause = function(){
-      $scope.play = !$scope.play;
-    }
+    // $scope.playPause = function(){
+    //   $scope.play = !$scope.play;
+    // }
   }
 
 

@@ -1,3 +1,4 @@
+
 <div class="row">
 
   <nav ng-hide="hideNav" class="{{navClass}}" id="sideNav">
@@ -60,10 +61,11 @@
       </div>
     </div>
 
+    <p class="col s12 m12 l12" id="hoverTitle">{{hoverTitle}}</p>
     <div class="row" id="thumbnailContainer">
 
       <div class="col s4.5 m4.5 l4.5" ng-repeat="thumbnail in thumbnails">
-        <img class="hoverable" id=thumbnails src={{thumbnail.thumbnail_url}} ng-click="switchVideo(thumbnail)">
+        <img class="hoverable" id=thumbnails src={{thumbnail.thumbnail_url}} ng-click="switchVideo(thumbnail)" ng-class="{'green': thumbnail.active}" ng-mouseover="setHoverTitle(thumbnail.title)" ng-mouseleave="removeHoverTitle()">
       </div>
 
     </div>
@@ -87,7 +89,7 @@
 
         <div class="col s12 m12 l12">
 
-          <h3 class="center-align">Vidiot.</h3>
+          <h3 id="vidiot" class="center-align">Vidiot.</h3>
 
         </div>
       </div>
@@ -109,11 +111,13 @@
 
     <div id="stuffToHide2" class="center-align">
 
-      <span ng-click="navigate('back', nowPlaying.index)"class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-      <span ng-click="playPause()" ng-show="!play" class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-      <span ng-click="playPause()" ng-show="play" class="glyphicon glyphicon-play" aria-hidden="true"></span>
-      <span ng-click="navigate('forward', nowPlaying.index)" class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+      <!-- <span ng-click="playPause()" ng-show="!play" class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+      <span ng-click="playPause()" ng-show="play" class="glyphicon glyphicon-play" aria-hidden="true"></span> -->
+      <!-- <span id="nowPlayingTitle">{{nowPlaying.title}}</span> -->
 
+      <span ng-click="navigate('back', nowPlaying.index)"class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+
+      <span ng-click="navigate('forward', nowPlaying.index)" class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
     </div>
   </div>
 </div>
@@ -122,7 +126,7 @@
   var timeoutID;
   var el = document.getElementById("playerContainer");
 
-  
+
 
   function setup() {
     el.addEventListener("mousemove", resetTimer, false);
