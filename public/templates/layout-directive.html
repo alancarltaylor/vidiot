@@ -161,34 +161,34 @@
     goActive();
   }
 
-var fullscreen = false;
-
-    window.onkeydown = function(e) {
-      fullscreen = !fullscreen;
-      if (e.which == 70 && fullscreen){
-        console.log("you pushed 'f'")
-        var docElement, request;
-
-        var docElement = document.documentElement;
-        var request = docElement.requestFullScreen || docElement.webkitRequestFullScreen || docElement.mozRequestFullScreen || docElement.msRequestFullScreen;
-
-        if(typeof request!="undefined" && request){
-            request.call(docElement);
-        }
-
-
-      } else if (e.which == 70 && !fullscreen){
-        var docElement, request;
-
-        docElement = document;
-        request = docElement.cancelFullScreen|| docElement.webkitCancelFullScreen || docElement.mozCancelFullScreen || docElement.msCancelFullScreen || docElement.exitFullscreen;
-        if(typeof request!="undefined" && request){
-            request.call(docElement);
-        }
-
-      }
-  }
-
+// var fullscreen = false;
+//
+//     window.onkeydown = function(e) {
+//       fullscreen = !fullscreen;
+//       if (e.which == 70 && fullscreen){
+//         console.log("you pushed 'f'")
+//         var docElement, request;
+//
+//         var docElement = document.documentElement;
+//         var request = docElement.requestFullScreen || docElement.webkitRequestFullScreen || docElement.mozRequestFullScreen || docElement.msRequestFullScreen;
+//
+//         if(typeof request!="undefined" && request){
+//             request.call(docElement);
+//         }
+//
+//
+//       } else if (e.which == 70 && !fullscreen){
+//         var docElement, request;
+//
+//         docElement = document;
+//         request = docElement.cancelFullScreen|| docElement.webkitCancelFullScreen || docElement.mozCancelFullScreen || docElement.msCancelFullScreen || docElement.exitFullscreen;
+//         if(typeof request!="undefined" && request){
+//             request.call(docElement);
+//         }
+//
+//       }
+//   }
+//
 
 
 

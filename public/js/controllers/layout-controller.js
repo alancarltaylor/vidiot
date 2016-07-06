@@ -10,10 +10,12 @@
     'PlaylistService',
     '$sce',
     '$log',
-  
+    '$rootScope',
+    '$localStorage'
+
   ]
 
-  function LayoutController($scope, PlaylistService, $sce, $log, $rootScope, Fullscreen){
+  function LayoutController($scope, PlaylistService, $sce, $log, $rootScope, $localStorage){
 
     $scope.domains =  [
       '5min.com', 'abcnews.go.com', 'animal.discovery.com', 'animoto.com', 'atom.com',
@@ -59,7 +61,22 @@
     $scope.leftKeyPushed = false;
     $scope.fKeyPushed = false;
     $scope.spacebarPushed = false;
+    $scope.storage = $localStorage;
 
+    console.log("local stoarge: ", $scope.storage);
+    $scope.storage.message = "hello"
+    console.log("sotarge.message: ", $scope.storage.message);
+
+
+    (function() {
+      'use strict';
+      if ($scope.storage.subs){
+        $scope.subs = $scope.storage.subs
+      } else {
+        $scope.storage.subs = $scope.subs
+      }
+
+    }());
 
     $scope.setHoverTitle = function(hoverTitle){
       $scope.hoverTitle = hoverTitle;
@@ -75,9 +92,10 @@
 
 
         if (videos === "subError"){
-          alert("This sort with this sub has no videos :(")
+          alert("This sort with this sub has no videos")
           $scope.newSub= "";
           $scope.nowPlaying.video = $scope.thumbnails[0].html
+
 
         } else {
 
@@ -98,11 +116,16 @@
           return outputArr;
         }, []);
 
+        if ($scope.thumbnails.length === 0){
+          alert ("sorry, there aren't any videos with that sort and this sub")
+        } else {
+
         $scope.nowPlaying.video = $scope.thumbnails[0].html
         $scope.nowPlaying.index = 0;
         $scope.nowPlaying.title = $scope.thumbnails[0].title
         $scope.thumbnails[0].active = true;
       }
+    }
       })
     }
     $scope.removeSub = function(sub){

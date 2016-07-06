@@ -3,7 +3,8 @@
 
   var dependencies = [
     'ui.router',
-    'ngAnimate'
+    'ngAnimate',
+    'ngStorage'
 
   ]
 
