@@ -47,7 +47,7 @@
       "https://i.ytimg.com/vi/owJ2sCujYuc/hqdefault.jpg", "https://i.ytimg.com/vi/Jc0tb3hjvcE/hqdefault.jpg", "https://i.ytimg.com/vi/hAKSd_tAU8E/hqdefault.jpg", "https://i.ytimg.com/vi/vrx8Ji8giL4/hqdefault.jpg",
       "https://i.ytimg.com/vi/t2CpfE04YPg/hqdefault.jpg", "https://i.ytimg.com/vi/cqsVPHBbV-s/hqdefault.jpg", "http://i1.ytimg.com/vi/dvMssEgp1ko/hqdefault.jpg", "http://i4.ytimg.com/vi/KFlaaa8fGoE/hqdefault.jpg",
       "http://i.ytimg.com/vi/iVgTVlWCTfM/hqdefault.jpg", "http://i1.ytimg.com/vi/AgkH1T7o_VM/hqdefault.jpg", "http://i1.ytimg.com/vi/IMjWJl9LVsA/hqdefault.jpg", "http://i1.ytimg.com/vi/aqaj4UTWCp4/hqdefault.jpg",
-      "http://i.ytimg.com/vi/l2dJqN3Q4OY/hqdefault.jpg", "http://i4.ytimg.com/vi/WJIuYgIvKsc/hqdefault.jpg", "https://i.ytimg.com/vi/fopHwQQ1fGg/hqdefault.jpg"]
+      "http://i.ytimg.com/vi/l2dJqN3Q4OY/hqdefault.jpg", "http://i4.ytimg.com/vi/WJIuYgIvKsc/hqdefault.jpg", "https://i.ytimg.com/vi/fopHwQQ1fGg/hqdefault.jpg", "https://i.ytimg.com/vi/gjyGQV2i9eU/hqdefault.jpg"]
 
     $scope.hideNav = true;
     $scope.hoverTitle = "";
