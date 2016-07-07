@@ -117,7 +117,7 @@
         }, []);
 
         if ($scope.thumbnails.length === 0){
-          alert ("sorry, there aren't any videos with that sort and this sub")
+          alert ("sorry, there aren't any videos with that sort and this sub, try using a different sort")
         } else {
 
         $scope.nowPlaying.video = $scope.thumbnails[0].html
