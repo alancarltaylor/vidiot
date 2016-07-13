@@ -4,8 +4,7 @@
   <nav  ng-hide="hideNav" class="{{navClass}}" id="sideNav">
     <div id="topNav">
       <div ng-click="menuClicked()" ng-hide="hideNav" class="glyphicon glyphicon-menu-hamburger" id="menuOpen"></div>
-      <!-- <i class="material-icons" data-beloworigin="true" href='#' data-activates='dropdown1'id="filter">swap_vertical_circle</i> -->
-      <!-- <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a> -->
+
       <div>
         <i class='dropdown-button btn' data-beloworigin="true" href='#' data-activates='dropdown1'>Sort</i>
 
@@ -111,109 +110,11 @@
 
     <div id="stuffToHide2" class="center-align">
 
-      <!-- <span ng-click="playPause()" ng-show="!play" class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-      <span ng-click="playPause()" ng-show="play" class="glyphicon glyphicon-play" aria-hidden="true"></span> -->
-      <!-- <span id="nowPlayingTitle">{{nowPlaying.title}}</span> -->
-
       <span ng-click="navigate('back', nowPlaying.index)"class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
       <span ng-click="navigate('forward', nowPlaying.index)" class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
     </div>
   </div>
 </div>
-
-<script type='text/javascript'>
-  var timeoutID;
-  var el = document.getElementById("playerContainer");
-  var le = window;
-  var elem = document.body;
-
-
-
-
-
-  function setup() {
-    el.addEventListener("mousemove", resetTimer, false);
-    el.addEventListener("mousedown", resetTimer, false);
-    el.addEventListener("keypress", resetTimer, false);
-    el.addEventListener("DOMMouseScroll", resetTimer, false);
-    el.addEventListener("mousewheel", resetTimer, false);
-    el.addEventListener("touchmove", resetTimer, false);
-    el.addEventListener("MSPointerMove", resetTimer, false);
-    le.addEventListener("touchstart", resetTimer, false);
-    le.addEventListener("touchmove", resetTimer, false);
-    le.addEventListener("touchend", resetTimer, false);
-    le.addEventListener("touchleave", resetTimer, false);
-    le.addEventListener("touchcancel", resetTimer, false);
-
-    startTimer();
-  }
-
-  setup();
-
-  function startTimer() {
-    // wait 2 seconds before calling goInactive
-    timeoutID = window.setTimeout(goInactive, 3000);
-  }
-
-  function resetTimer(e) {
-    window.clearTimeout(timeoutID);
-
-    goActive();
-  }
-
-// var fullscreen = false;
-//
-//     window.onkeydown = function(e) {
-//       fullscreen = !fullscreen;
-//       if (e.which == 70 && fullscreen){
-//         console.log("you pushed 'f'")
-//         var docElement, request;
-//
-//         var docElement = document.documentElement;
-//         var request = docElement.requestFullScreen || docElement.webkitRequestFullScreen || docElement.mozRequestFullScreen || docElement.msRequestFullScreen;
-//
-//         if(typeof request!="undefined" && request){
-//             request.call(docElement);
-//         }
-//
-//
-//       } else if (e.which == 70 && !fullscreen){
-//         var docElement, request;
-//
-//         docElement = document;
-//         request = docElement.cancelFullScreen|| docElement.webkitCancelFullScreen || docElement.mozCancelFullScreen || docElement.msCancelFullScreen || docElement.exitFullscreen;
-//         if(typeof request!="undefined" && request){
-//             request.call(docElement);
-//         }
-//
-//       }
-//   }
-//
-
-
-
-
-
-  function goInactive() {
-    $('#stuffToHide').addClass("inactive")
-    $('#stuffToHide2').addClass("inactive")
-
-    // do something
-  }
-
-  function goActive() {
-    $('#stuffToHide').removeClass("inactive")
-    $('#stuffToHide2').removeClass("inactive")
-    // do something
-
-    startTimer();
-  }
-
-  $('.dropdown-button').dropdown({
-    inDuration: 300, outDuration: 225, constrain_width: false, // Does not change width of dropdown to that of the activator
-    hover: true, // Activate on hover
-    gutter: 0, // Spacing from edge
-    belowOrigin: false, // Displays dropdown below the button
-    alignment: 'left' // Displays dropdown with edge aligned to the left of button
-  });
+<script>
+  $(document).ready(vidiotScripts());
 </script>

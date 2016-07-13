@@ -16,18 +16,15 @@
         return $http.get('https://www.reddit.com'+sub+'/'+sortType);
       } else {
         return $http.get('https://www.reddit.com'+sub+'/'+sortType+"&limit=100").then(function(data){
-          console.log("successful data: ", data);
           return data;
         },
         function(){
-
-        console.log("error");
         return "subError";
         })
       }
   }
 
-  
+
 
 
 
