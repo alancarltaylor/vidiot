@@ -9,7 +9,7 @@
   ]
 
   function PlaylistService($http){
-    //This function gets the json object from reddit, right before it is rendered by Reddit. 
+    //This function gets the json object from reddit, right before it is rendered by Reddit.
     this.getPlaylist = function(sortType, sub){
 
       if (sortType === "new.json" || sortType === "hot.json"){
@@ -23,15 +23,5 @@
         })
       }
   }
-
-
-
-
-
 }
-
-
-
-
-
 }());

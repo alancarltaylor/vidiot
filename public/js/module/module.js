@@ -5,7 +5,6 @@
     'ui.router',
     'ngAnimate',
     'ngStorage'
-
   ]
 
   angular.module('vidiot', dependencies)

@@ -12,7 +12,6 @@
     '$log',
     '$rootScope',
     '$localStorage'
-
   ]
 
   function LayoutController($scope, PlaylistService, $sce, $log, $rootScope, $localStorage) {
@@ -212,12 +211,10 @@
         $scope.nowPlaying.title = $scope.thumbnails[index].title
         $scope.thumbnails[index].active = true;
 
-
-
       }
     }
 
-    //This listens for right or left arrow events, and runs the navigate function on them. 
+    //This listens for right or left arrow events, and runs the navigate function on them.
     $scope.$on("right-arrow", function(e, data) {
 
       $scope.navigate("forward", $scope.nowPlaying.index)
@@ -229,6 +226,5 @@
     })
 
   }
-
 
 }());
