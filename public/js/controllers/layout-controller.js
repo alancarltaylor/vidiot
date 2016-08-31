@@ -132,6 +132,11 @@
             } else {
               //This sets the playing video to the first thumbnail in the array
               $scope.nowPlaying.video = $scope.thumbnails[0].html
+              console.log("nowPlaying.video: ", $scope.nowPlaying.video )
+              console.log("typeof nowPlaying.video: ", typeof $scope.nowPlaying.video )
+              console.log("indexOf: ", $scope.nowPlaying.video.indexOf("src="))
+              $scope.nowPlaying.video = $scope.autoplay($scope.nowPlaying.video);
+
               $scope.nowPlaying.index = 0;
               $scope.nowPlaying.title = $scope.thumbnails[0].title
               $scope.thumbnails[0].active = true;
@@ -149,10 +154,30 @@
       }
     }
 
+    $scope.autoplay = function(iframeString){
+      var start = iframeString.indexOf('src="');
+      var end;
+      for (var i = start+5; i < iframeString.length; i++) {
+
+        if (iframeString[i] === '"'){
+          end = i
+          console.log("end inside if statement: ", end)
+          break;
+        }
+      }
+      var oldSrc = iframeString.substring(start, end+1)
+      console.log("oldSrc: ", newSrc)
+      console.log("end: ", end)
+      var newSrc = oldSrc.substring(0, oldSrc.length - 1)+'&autoplay=1"';
+      console.log("newSrc: ", newSrc)
+      iframeString = iframeString.replace(oldSrc, newSrc)
+      return iframeString;
+    }
+
     //This function allows users to click on a thumbnail, and have it play in the player
     $scope.switchVideo = function(thumbnail) {
       $scope.thumbnails[$scope.nowPlaying.index].active = false;
-      $scope.nowPlaying.video = thumbnail.html;
+      $scope.nowPlaying.video = $scope.autoplay(thumbnail.html);
       $scope.nowPlaying.index = $scope.thumbnails.indexOf(thumbnail)
       $scope.nowPlaying.title = thumbnail.title;
       $scope.thumbnails[$scope.nowPlaying.index].active = true;
@@ -198,7 +223,7 @@
       if (direction === "back" && index > 0) {
         $scope.thumbnails[index].active = false
         index--;
-        $scope.nowPlaying.video = $scope.thumbnails[index].html;
+        $scope.nowPlaying.video = $scope.autoplay($scope.thumbnails[index].html);
         $scope.nowPlaying.index = index;
         $scope.nowPlaying.title = $scope.thumbnails[index].title;
         $scope.thumbnails[index].active = true;
@@ -206,7 +231,7 @@
         $scope.thumbnails[index].active = false
 
         index++;
-        $scope.nowPlaying.video = $scope.thumbnails[index].html;
+        $scope.nowPlaying.video = $scope.autoplay($scope.thumbnails[index].html);
         $scope.nowPlaying.index = index;
         $scope.nowPlaying.title = $scope.thumbnails[index].title
         $scope.thumbnails[index].active = true;
